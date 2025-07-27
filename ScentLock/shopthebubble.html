@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop The Bubble</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="shopthebubble.css">
+  <style>
+    body {
+      background-color: #F5F5DC;
+      color: #5E4B3C;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .card {
+      background-color: #988167;
+      border: none;
+      border-radius: 12px;
+      color: #f6f6e4;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+    }
+    .btn-scent {
+      background-color: #f6f6e4;
+      color: #5E4B3C;
+      border-radius: 30px;
+      padding: 6px 20px;
+    }
+    .btn-scent:hover {
+      background-color: #e4e4d4;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <h2>ScentLock</h2>
+  </div>
+  <div class="image-container">
+    <img src="Logo.jpg">
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02" style="background-color: #f6f6e4;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-links">
+            <a class="nav-link" href="TheClamZone.html">The Clam Zone</a>
+          </li>
+          <li class="nav-links">
+            <a class="nav-link" href="MeetScentLock.html">Meet ScentLock</a>
+          </li>
+          <li class="nav-links">
+            <a class="nav-link" href="shopthebubble.html">Shop The Bubble</a>
+          </li>
+          <li class="nav-links">
+            <a class="nav-link" href="Let'stalk.html">Let's Talk</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<div class="container py-5">
+  <div id="step1">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Step 1: Choose Your Necklace</h2>
+      <p class="lead">Pick a finish that suits your style.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <h5>✨ Gold</h5>
+          <p>Classic and timeless.</p>
+          <p style="color: #f5f5ea;">Price: $39.99</p>
+          <button class="btn btn-scent" onclick="selectNecklace('Gold')">Select</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <h5>🌸 Rose Gold</h5>
+          <p>Soft and feminine.</p>
+          <p style="color: #f5f5ea;">Price: $41.99</p>
+          <button class="btn btn-scent" onclick="selectNecklace('Rose Gold')">Select</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <h5>❄ Silver</h5>
+          <p>Clean and minimal.</p>
+          <p style="color: #f5f5ea;">Price: $36.99</p>
+          <button class="btn btn-scent" onclick="selectNecklace('Silver')">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="step2" class="hidden mt-5">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Step 2: Pick Your Scent</h2>
+      <p class="lead">Choose a fragrance capsule to match your mood.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <h5>🌸 Lavender Drift</h5>
+          <p>Light and floral. Mood: Calm</p>
+          <p style="color: #f5f5ea;">Price: $9.99</p>
+          <button class="btn btn-scent" onclick="selectScent('Lavender Drift')">Choose</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <h5>🍊 Citrus Burst</h5>
+          <p>Fresh & energizing. Mood: Focus</p>
+          <p style="color: #f5f5ea;">Price: $9.99</p>
+          <button class="btn btn-scent" onclick="selectScent('Citrus Burst')">Choose</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card text-center p-3">
+          <h5>🌲 Woodland Calm</h5>
+          <p>Earthy tones. Mood: Grounded</p>
+          <p style="color: #f5f5ea;">Price: $9.99</p>
+          <button class="btn btn-scent" onclick="selectScent('Woodland Calm')">Choose</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="summary" class="hidden mt-5 text-center">
+    <h3 class="fw-bold">Your Selection</h3>
+    <div class="mt-4 text-start mx-auto" style="max-width: 400px; background-color: #988167; color: #f6f6e4; padding: 20px; border-radius: 12px;">
+      <p><strong>Necklace:</strong> <span id="summary-necklace"></span> = <span id="necklace-price"></span></p>
+      <p><strong>Scent:</strong> <span id="summary-scent"></span> = <span id="scent-price"></span></p>
+      <hr style="border-color:#f6f6e4;">
+      <p><strong>Total:</strong> <span id="total-price"></span></p>
+    </div>
+    <button class="btn btn-scent mt-4">Confirm Order</button>
+  </div>
+</div>
+
+<script>
+  let selectedNecklace = '';
+  let selectedScent = '';
+
+  const necklacePrices = {
+    "Gold": 39.99,
+    "Rose Gold": 41.99,
+    "Silver": 36.99
+  };
+
+  const scentPrices = {
+    "Lavender Drift": 9.99,
+    "Citrus Burst": 9.99,
+    "Woodland Calm": 9.99
+  };
+
+  function selectNecklace(necklace) {
+    selectedNecklace = necklace;
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+  }
+
+  function selectScent(scent) {
+    selectedScent = scent;
+    const necklacePrice = necklacePrices[selectedNecklace];
+    const scentPrice = scentPrices[scent];
+    const total = (necklacePrice + scentPrice).toFixed(2);
+
+    document.getElementById('summary-necklace').innerText = selectedNecklace;
+    document.getElementById('necklace-price').innerText = necklacePrice;
+    document.getElementById('summary-scent').innerText = selectedScent;
+    document.getElementById('scent-price').innerText = scentPrice;
+    document.getElementById('total-price').innerText = total;
+
+    document.getElementById('step2').classList.add('hidden');
+    document.getElementById('summary').classList.remove('hidden');
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
